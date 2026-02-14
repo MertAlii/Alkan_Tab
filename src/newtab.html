@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Alkan Tab</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <div class="background-container"></div>
+
+    <main class="main-container">
+        <div class="search-wrapper">
+            <div class="engine-dropdown" id="engineDropdown">
+                <button class="current-engine" id="currentEngineBtn">
+                    <!-- Icon injected by JS -->
+                </button>
+                <div class="engine-list">
+                    <div class="engine-item" data-engine="google">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c1/Google_%22G%22_logo.svg/150px-Google_%22G%22_logo.svg.png"
+                            alt="Google">
+                        <span>Google</span>
+                    </div>
+                    <div class="engine-item" data-engine="duckduckgo">
+                        <img src="https://upload.wikimedia.org/wikipedia/en/9/90/The_DuckDuckGo_Duck.png"
+                            alt="DuckDuckGo">
+                        <span>DuckDuckGo</span>
+                    </div>
+                    <div class="engine-item" data-engine="bing">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/9c/Bing_Fluent_Logo.svg/150px-Bing_Fluent_Logo.svg.png"
+                            alt="Bing">
+                        <span>Bing</span>
+                    </div>
+                </div>
+            </div>
+            <input type="text" id="searchInput" placeholder="Ara..." autocomplete="off">
+            <div class="suggestions-container" id="suggestionsContainer"></div>
+        </div>
+
+        <!-- Navbar moved here -->
+        <nav class="glass-nav" id="shortcutsNav">
+            <ul id="shortcutsList">
+                <!-- Shortcuts injected by JS -->
+            </ul>
+        </nav>
+    </main>
+
+    <div class="settings-container">
+        <button class="settings-btn" id="settingsBtn" aria-label="Settings">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="12" cy="12" r="3"></circle>
+                <path
+                    d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z">
+                </path>
+            </svg>
+        </button>
+    </div>
+
+    <!-- Modal Overlay -->
+    <div class="modal-overlay" id="modalOverlay"></div>
+
+    <!-- Settings Modal -->
+    <div class="settings-modal" id="settingsModal">
+        <div class="modal-header">
+            <h2>Ayarlar</h2>
+            <button class="close-modal-btn" id="closeModalBtn">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                    stroke-linecap="round" stroke-linejoin="round">
+                    <line x1="18" y1="6" x2="6" y2="18"></line>
+                    <line x1="6" y1="6" x2="18" y2="18"></line>
+                </svg>
+            </button>
+        </div>
+
+        <div class="modal-content">
+            <div class="settings-section">
+                <h3>Arama Motoru</h3>
+                <div class="engine-options-grid">
+                    <div class="engine-option-card" data-engine="google">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c1/Google_%22G%22_logo.svg/150px-Google_%22G%22_logo.svg.png"
+                            alt="Google">
+                        <span>Google</span>
+                    </div>
+                    <div class="engine-option-card" data-engine="duckduckgo">
+                        <img src="https://upload.wikimedia.org/wikipedia/en/9/90/The_DuckDuckGo_Duck.png"
+                            alt="DuckDuckGo">
+                        <span>DuckDuckGo</span>
+                    </div>
+                    <div class="engine-option-card" data-engine="bing">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/9c/Bing_Fluent_Logo.svg/150px-Bing_Fluent_Logo.svg.png"
+                            alt="Bing">
+                        <span>Bing</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Theme Settings -->
+            <div class="settings-section">
+                <h3>Tema</h3>
+                <div class="theme-options-grid">
+                    <div class="theme-option-card active" data-theme="dark">
+                        <span>Siyah</span>
+                    </div>
+                    <div class="theme-option-card" data-theme="light">
+                        <span>Beyaz</span>
+                    </div>
+                    <div class="theme-option-card" data-theme="system">
+                        <span>Sistem</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Appearance Settings -->
+            <div class="settings-section">
+                <h3>Görünüm</h3>
+                <div class="display-options-grid">
+                    <div class="display-option-card active" data-mode="both">
+                        <span>İkon + Yazı</span>
+                    </div>
+                    <div class="display-option-card" data-mode="icon">
+                        <span>Sadece İkon</span>
+                    </div>
+                    <div class="display-option-card" data-mode="text">
+                        <span>Sadece Yazı</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="settings-section">
+                <h3>Kısayollar</h3>
+                <div class="add-shortcut-form">
+                    <input type="text" id="newShortcutName" placeholder="İsim (örn. YouTube)">
+                    <input type="url" id="newShortcutUrl" placeholder="URL (örn. youtube.com)">
+                    <button id="addShortcutBtn">Ekle</button>
+                </div>
+                <div class="shortcuts-list-manage" id="shortcutsManageList">
+                    <!-- Managed items injected here -->
+                </div>
+            </div>
+            <!-- Custom Extensions Form -->
+            <div class="settings-section">
+                <h3>Yeni Eklenti Ekle</h3>
+                <div class="add-shortcut-form">
+                    <input type="text" id="newPluginName" placeholder="İsim (örn. GitHub)">
+                    <input type="text" id="newPluginTrigger" placeholder="Tetikleyici (örn. @gh)">
+                    <input type="url" id="newPluginUrl" placeholder="URL şablonu (örn. github.com?q=%s)">
+                    <p style="font-size:11px; color:var(--text-secondary); margin-top:5px;">
+                        İpucu: Direkt geçiş için tetikleyiciyi yazıp Enter'a basın. Arama için adresin sonuna
+                        <strong>%s</strong> koyun.
+                    </p>
+                    <button id="addPluginBtn" style="margin-top:10px;">Ekle ve Kaydet</button>
+                </div>
+            </div>
+
+            <!-- Data Settings -->
+            <div class="settings-section">
+                <h3>Veri</h3>
+                <button id="clearHistoryBtn" class="danger-btn">Arama Geçmişini Temizle</button>
+            </div>
+
+            <div class="settings-section">
+                <h3>Eklentiler</h3>
+                <div class="extensions-list" id="extensionsList">
+                    <!-- Extensions injected by JS -->
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer class="footer">
+        Built by <strong>Alkan</strong>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+
+</html>

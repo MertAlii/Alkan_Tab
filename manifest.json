@@ -1,0 +1,16 @@
+{
+    "manifest_version": 3,
+    "name": "Alkan Tab",
+    "version": "1.1",
+    "description": "Minimalist New Tab with Custom Plugins & Tools",
+    "chrome_url_overrides": {
+        "newtab": "src/newtab.html"
+    },
+    "permissions": [],
+    "host_permissions": [
+        "https://suggestqueries.google.com/*",
+        "https://www.google.com/*",
+        "*://*.google.com/*",
+        "https://icons.duckduckgo.com/*"
+    ]
+}
