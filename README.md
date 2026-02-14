@@ -19,7 +19,8 @@
 *   **Tema Seçenekleri:** Koyu (Dark), Açık (Light) veya Sistem teması seçenekleri.
 *   **Görünüm Modları:** Kısayolları "Sadece İkon", "Sadece Yazı" veya "Her İkisi" şeklinde görüntüleyin.
 
-![Ayarlar Menüsü](Resim/03.png)
+<img width="1309" height="915" alt="image" src="https://github.com/user-attachments/assets/c2cfa7b5-afc0-4e63-986f-41ac3e82d297" />
+
 
 ## Kurulum (Geliştirici Modu)
 
